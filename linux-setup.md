@@ -166,13 +166,13 @@ sudo apt remove python3.11 python3.11-venv python3.11-pip python3.11-dev
 # Navigate to your home directory
 cd ~
 
-# Create a kisz workspace directory
-mkdir kisz
-cd kisz
+# Create an aisc workspace directory
+mkdir aisc
+cd aisc
 
 # Clone the repository
-git clone https://github.com/aihpi/kisz-getting-started.git
-cd kisz-getting-started
+git clone https://github.com/aihpi/aisc-getting-started.git
+cd aisc-getting-started
 ```
 
 ### Open in VS Code
@@ -220,7 +220,9 @@ We'll install Jupyter using UV to manage our notebook environment.
 
 ### Create Project Environment
 
-In your project directory (`~/kisz/kisz-getting-started`):
+## Install UV Python Environment Manager
+
+In your project directory (`~/aisc/aisc-getting-started`):
 
 ```bash
 # Create a virtual environment with Python 3.11
@@ -373,7 +375,7 @@ In your project directory:
 
 ```bash
 # Make sure you're in the project root
-cd ~/kisz/kisz-getting-started
+cd ~/aisc/aisc-getting-started
 
 # Start all services with Docker Compose
 docker compose up -d

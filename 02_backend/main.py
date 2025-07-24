@@ -1,5 +1,5 @@
 """
-KISZ Getting Started - Chatbot Backend API
+AISC Getting Started - Chatbot Backend API
 
 A simple FastAPI backend that integrates with Ollama to provide
 a chat interface for interacting with local language models.
@@ -15,7 +15,7 @@ import asyncio
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="KISZ Chatbot API",
+    title="AISC Chatbot API",
     description="A simple chatbot backend using Ollama for local LLM inference",
     version="1.0.0"
 )
@@ -51,7 +51,7 @@ class ChatResponse(BaseModel):
 @app.get("/")
 async def root():
     """Root endpoint - API status check"""
-    return {"message": "KISZ Chatbot API is running!"}
+    return {"message": "AISC Chatbot API is running!"}
 
 @app.get("/health")
 async def health_check():

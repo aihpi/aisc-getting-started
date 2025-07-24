@@ -1,6 +1,6 @@
 <div style="background-color: #ffffff; color: #000000; padding: 10px;">
 <img src="00_aisc\img\logo_aisc_bmftr.jpg">
-<h1> KISZ Getting Started
+<h1> AISC Getting Started
 </div>
 
 This repository provides a comprehensive getting started guide for people new to development workflows. Learn how to set up your development environment, work with Python virtual environments, Docker containers, and AI tools like Ollama - all from scratch!
@@ -89,7 +89,7 @@ Each setup step includes verification commands to ensure everything is working c
 ## Repository Structure
 
 ```
-kisz-getting-started/
+aisc-getting-started/
 ├── README.md                # This file
 ├── windows-setup.md         # Windows setup guide
 ├── macos-setup.md           # macOS setup guide  

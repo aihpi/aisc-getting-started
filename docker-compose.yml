@@ -1,0 +1,46 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app 
+      - /app/node_modules 
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DEVICE=cuda
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG_MODE=true
+      - DEFAULT_MODEL_ID=t2i_adapter_sdxl  
+      - NUM_INFERENCE_STEPS=40  
+      - GUIDANCE_SCALE=7.5
+      - OUTPUT_IMAGE_SIZE=512
+      - FRONTEND_URL=http://localhost:3000
+      - USE_PIDINET_PREPROCESSING=true  
+    volumes:
+      - ./backend:/app  
+      - ./backend/uploads:/app/uploads
+      - ./backend/outputs:/app/outputs
+      - ./backend/preprocessed:/app/preprocessed  
+      - huggingface_cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  huggingface_cache:

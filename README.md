@@ -5,6 +5,14 @@
 
 This repository provides a comprehensive getting started guide for people new to development workflows. Learn how to set up your development environment, work with Python virtual environments, Docker containers, and AI tools like Ollama - all from scratch!
 
+## Workshop Context
+
+This repository introduces the essential development tools and workflows used in workshops offered by the **AI Service Center Berlin-Brandenburg**. We strongly recommend completing the installation process before attending workshops, particularly if you plan to actively engage with the AI applications and development environments demonstrated during the sessions.
+
+**Need assistance?** If you encounter any issues during installation, please contact us at **kisz@hpi.de** for technical support.
+
+**Not ready to install?** Most workshops welcome participants without prior setup completion. When in doubt, contact your workshop instructor to clarify technical requirements for your specific session.
+
 ## What You'll Learn
 
 - **Development Environment Setup**: Install and configure VS Code, Git, and Python
@@ -51,8 +59,7 @@ After completing the setup, follow these hands-on tutorials in order:
 1. **[Overview](03_workshop/00_overview.ipynb)** - Understanding the learning structure
 2. **[UV Environment Management](03_workshop/01_uv_environment_management.ipynb)** - Master Python virtual environments
 3. **[Jupyter Basics](03_workshop/02_jupyter_basics.ipynb)** - Interactive development with notebooks
-4. **[Working with Environments](03_workshop/03_working_with_environments.ipynb)** - Advanced environment workflows
-5. **[Ollama and LLM Prompting](03_workshop/04_ollama_and_llm_prompting.ipynb)** - AI model integration
+4. **[Ollama and LLM Prompting](03_workshop/03_ollama_and_llm_prompting.ipynb)** - AI model integration
 
 ## Example Application
 
@@ -83,9 +90,9 @@ Each setup step includes verification commands to ensure everything is working c
 
 ```
 kisz-getting-started/
-├── README.md                   # This file
-├── windows-setup.md           # Windows setup guide
-├── macos-setup.md            # macOS setup guide  
+├── README.md                # This file
+├── windows-setup.md         # Windows setup guide
+├── macos-setup.md           # macOS setup guide  
 ├── linux-setup.md           # Linux setup guide
 ├── docker-compose.yml       # Application deployment
 ├── 00_aisc/                 # AISC branding assets

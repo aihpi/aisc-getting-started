@@ -3,65 +3,104 @@
 <h1> KISZ Getting Started
 </div>
 
-This repository provides getting started materials and examples for the AI Service Center Berlin Brandenburg (KISZ). It includes workshops, tutorials, and practical examples to help you get started with AI services and tools.
+This repository provides a comprehensive getting started guide for people new to development workflows. Learn how to set up your development environment, work with Python virtual environments, Docker containers, and AI tools like Ollama - all from scratch!
 
-## Features
+## What You'll Learn
 
-- **Workshop Materials**: Comprehensive Jupyter notebooks for hands-on learning
-- **Docker Setup**: Ready-to-use containerized environment for consistent development
-- **Templates**: Reusable templates for your own AI projects
-- **Documentation**: Clear guides and examples for common AI workflows
+- **Development Environment Setup**: Install and configure VS Code, Git, and Python
+- **Python Environment Management**: Master UV for creating and managing virtual environments
+- **Jupyter Notebooks**: Learn to use Jupyter for interactive development
+- **Docker Containers**: Build and run applications in containerised environments
+- **AI/LLM Integration**: Set up and use Ollama for local language model development
+- **Real-world Application**: Build a simple chatbot that uses local AI models
 
-## Setup and Installation
+## Who This Guide Is For
 
-### Prerequisites
+This guide is designed for people who have basic computer skills but may be new to:
+- Command line/terminal usage
+- Programming environments and package management
+- Docker and containerisation
+- AI/ML development workflows
 
-- Docker and Docker Compose
-- NVIDIA GPU with CUDA support (optional, but recommended for faster performance)
+## Getting Started
 
-### Quick Start
+Choose your operating system to begin the setup process:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/aihpi/kisz-getting-started.git
-   cd kisz-getting-started
-   ```
+### Setup Guides by Operating System
 
-2. Run the setup or install dependencies:
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
+- **[Windows Setup Guide](windows-setup.md)** - Complete setup including WSL installation
+- **[macOS Setup Guide](macos-setup.md)** - Native macOS development environment
+- **[Linux Setup Guide](linux-setup.md)** - For Ubuntu/Debian-based distributions
 
-3. Access the application:
-   - Frontend: http://localhost:8080
-   - Backend API: http://localhost:8000
+### Quick Overview
 
-## User Guide
+1. **Install VS Code** - Your development environment
+2. **Set up GitHub** - Version control and repository access
+3. **Clone this repository** - Get the learning materials
+4. **Install Python 3.11** - Programming language (WSL for Windows users)
+5. **Install UV** - Python environment management
+6. **Install Jupyter** - Interactive notebook environment
+7. **Install Docker Desktop** - Containerisation platform
+8. **Install Ollama** - Local AI model server
+9. **Run the example application** - Test your complete setup
 
-### Using the Workshops
-1. Navigate to the `03_workshop` directory for Jupyter notebook tutorials
-2. Use the Docker environment for a consistent setup across different systems
-3. Follow the numbered notebooks in order for the best learning experience
+## Learning Path
 
-### Recommendations
-- Start with the overview notebook (`00_overview.ipynb`) to understand the structure
-- Use a GPU-enabled environment for better performance with AI models
-- Customize the templates for your own projects
+After completing the setup, follow these hands-on tutorials in order:
 
-## Limitations
+1. **[Overview](03_workshop/00_overview.ipynb)** - Understanding the learning structure
+2. **[UV Environment Management](03_workshop/01_uv_environment_management.ipynb)** - Master Python virtual environments
+3. **[Jupyter Basics](03_workshop/02_jupyter_basics.ipynb)** - Interactive development with notebooks
+4. **[Working with Environments](03_workshop/03_working_with_environments.ipynb)** - Advanced environment workflows
+5. **[Ollama and LLM Prompting](03_workshop/04_ollama_and_llm_prompting.ipynb)** - AI model integration
 
-- **GPU Dependency**: Some advanced examples require NVIDIA GPU support
-- **Resource Requirements**: Large language models may require significant computational resources
+## Example Application
+
+This repository includes a complete chatbot application that demonstrates all the technologies you'll learn:
+
+- **Frontend**: React-based chat interface (`01_frontend/`)
+- **Backend**: FastAPI server with Ollama integration (`02_backend/`)
+- **Deployment**: Docker Compose setup for easy deployment
+
+### Running the Application
+
+After completing the setup guide for your operating system:
+
+```bash
+# Start the complete application stack
+docker-compose up -d
+
+# Access the chatbot
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+```
+
+## Verification
+
+Each setup step includes verification commands to ensure everything is working correctly. The final verification is running the example chatbot application.
+
+## Repository Structure
+
+```
+kisz-getting-started/
+├── README.md                   # This file
+├── windows-setup.md           # Windows setup guide
+├── macos-setup.md            # macOS setup guide  
+├── linux-setup.md           # Linux setup guide
+├── docker-compose.yml       # Application deployment
+├── 00_aisc/                 # AISC branding assets
+├── 01_frontend/             # React chatbot frontend
+├── 02_backend/              # FastAPI backend
+└── 03_workshop/             # Learning notebooks
+```
 
 
 ## References
 
 - [AI Service Center Berlin Brandenburg](https://hpi.de/kisz)
-- [Hasso Plattner Institute](https://hpi.de)
 
 ## Author
-- AI Service Center Berlin Brandenburg
+- [Hanno Müller](https://github.com/hanno-mueller-HPI)
 
 ## License
 

@@ -1,46 +1,50 @@
 services:
-  frontend:
-    build:
-      context: ./frontend
+  # Ollama service for AI model hosting
+  ollama:
+    image: ollama/ollama:latest
+    container_name: kisz-ollama
     ports:
-      - "3000:3000"
-    environment:
-      - REACT_APP_API_URL=http://localhost:8000/api
-    depends_on:
-      - backend
+      - "11435:11434"
     volumes:
-      - ./frontend:/app 
-      - /app/node_modules 
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
 
+  # Backend API service
   backend:
     build:
-      context: ./backend
+      context: ./02_backend
+      dockerfile: Dockerfile
+    container_name: kisz-backend
     ports:
       - "8000:8000"
     environment:
-      - DEVICE=cuda
-      - HOST=0.0.0.0
-      - PORT=8000
-      - DEBUG_MODE=true
-      - DEFAULT_MODEL_ID=t2i_adapter_sdxl  
-      - NUM_INFERENCE_STEPS=40  
-      - GUIDANCE_SCALE=7.5
-      - OUTPUT_IMAGE_SIZE=512
-      - FRONTEND_URL=http://localhost:3000
-      - USE_PIDINET_PREPROCESSING=true  
+      - OLLAMA_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    restart: unless-stopped
     volumes:
-      - ./backend:/app  
-      - ./backend/uploads:/app/uploads
-      - ./backend/outputs:/app/outputs
-      - ./backend/preprocessed:/app/preprocessed  
-      - huggingface_cache:/root/.cache/huggingface
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+      - ./02_backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./01_frontend
+      dockerfile: Dockerfile
+    container_name: kisz-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    volumes:
+      - ./01_frontend:/app
+      - /app/node_modules
+    command: npm start
 
 volumes:
-  huggingface_cache:
+  ollama_data:

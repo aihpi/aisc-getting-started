@@ -19,7 +19,7 @@ function App() {
               className="logo-right"
             />
           </div>
-          <h1>KISZ Getting Started - AI Chatbot Demo</h1>
+          <h1>AISC Getting Started - AI Chatbot Demo</h1>
           <p>Chat with a local AI model powered by Ollama</p>
         </div>
       </header>

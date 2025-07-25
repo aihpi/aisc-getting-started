@@ -5,3 +5,4 @@ pydantic==2.5.1
 httpx==0.25.2
 python-dotenv==1.0.0
 ollama==0.1.7
+setuptools==80.9.0

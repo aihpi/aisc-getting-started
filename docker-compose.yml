@@ -7,9 +7,16 @@ services:
       - "11435:11434"
     volumes:
       - ollama_data:/root/.ollama
+      - ./ollama_entrypoint.sh:/ollama_entrypoint.sh
     environment:
       - OLLAMA_HOST=0.0.0.0
     restart: unless-stopped
+    entrypoint: [ "/bin/bash", "/ollama_entrypoint.sh" ]
+    healthcheck:
+        test: [ "CMD-SHELL", "curl -f http://localhost:11435 || exit 1" ]
+        interval: 30s
+        timeout: 10s
+        retries: 5
 
   # Backend API service
   backend:

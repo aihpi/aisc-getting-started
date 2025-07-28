@@ -9,9 +9,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Install uv and use pyproject.toml for dependencies
+COPY pyproject.toml .
+RUN pip install --no-cache-dir uv && uv sync --system
 
 # Copy application code
 COPY . .

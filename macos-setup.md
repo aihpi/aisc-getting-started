@@ -236,7 +236,7 @@ source .venv/bin/activate
 
 # Install Jupyter and project dependencies
 cd 03_workshop
-uv pip install -r requirements.txt
+uv sync
 ```
 
 ### Verification

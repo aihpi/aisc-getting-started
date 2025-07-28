@@ -1,0 +1,17 @@
+[project]
+name = "aisc-getting-started-workshop"
+version = "0.1.0"
+description = "Workshop notebooks and code for AISC Getting Started."
+requires-python = ">=3.11"
+
+[project.dependencies]
+jupyter = "1.0.0"
+notebook = "7.0.6"
+ipykernel = "6.26.0"
+jupyterlab = "4.0.9"
+matplotlib = "3.8.2"
+pandas = "2.1.4"
+numpy = "1.26.2"
+requests = "2.31.0"
+python-dotenv = "1.0.0"
+ollama = "0.1.7"

@@ -284,45 +284,39 @@ Both should show version information.
 
 ## Step 9: Install Ollama
 
-Ollama provides local AI model hosting capabilities.
 
-### Installation
+Let's verify everything works together by running the example chatbot application.
 
-```bash
-# Install Ollama using Homebrew
-brew install ollama
+### Run the Application
 
-# Or use the official installer
-# curl -fsSL https://ollama.ai/install.sh | sh
-```
-
-### Start Ollama Service
+In your project directory:
 
 ```bash
-# Start Ollama in the background
-ollama serve &
-
-# Wait a moment for the service to start
-sleep 5
-
-# Pull the llama3.2:1b model (small model for testing)
-ollama pull llama3.2:1b
+# Make sure you're in the project root
+# Start all services and download the AI model (first-time setup only)
+./run.sh
 ```
 
-**Note**: The `ollama serve &` command starts Ollama as a background process in your current terminal. The `&` at the end runs it in the background, but it will occupy this terminal session. For subsequent commands, you may want to:
-- Open a new terminal window/tab, OR
-- Use `Ctrl+C` to stop the background process when you're done, OR
-- Use `nohup ollama serve &` to run it completely detached from the terminal
+**Important**: The first time you run this setup, the script will automatically download the AI model (`llama3.2:1b`, approximately 1.3GB). This is a one-time process that may take 5-15 minutes depending on your internet connection. The script will show progress as it downloads.
 
 ### Verification
 
+1. Wait for the model download to complete (you'll see "All services ready!" message)
+2. Open your web browser
+3. Go to `http://localhost:3000` - you should see the chatbot frontend
+4. Wait for the "Backend Connected" status
+5. Try sending a message to test the complete setup (e.g., "What's the capital of France?")
+6. Go to `http://localhost:8000/docs` - you should see the API documentation
+
+**Note**: If you see "Backend Disconnected" or chat errors, ensure the model download completed successfully. You can check available models with `docker compose exec aisc-ollama ollama list`.
+
+### Stop the Application
+
+Press `Ctrl+C` in the terminal running `./run.sh`, or in a new terminal run:
+
 ```bash
-ollama list
+docker compose down
 ```
-
-Should show the `llama3.2:1b` model in the list.
-
-Test the model:
 
 ```bash
 ollama run llama3.2:1b "Hello, how are you?"

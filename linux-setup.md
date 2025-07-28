@@ -367,6 +367,8 @@ You should get a response from the AI model.
 
 ## Step 9: Test the Complete Setup
 
+echo "Setup complete! The application is ready to use."
+
 Let's verify everything works together by running the example chatbot application.
 
 ### Run the Application
@@ -377,30 +379,26 @@ In your project directory:
 # Make sure you're in the project root
 cd ~/aisc/aisc-getting-started
 
-# Start all services with Docker Compose
-docker compose up -d
-
-# Download the AI model (first-time setup only)
-echo "Downloading AI model (this may take 5-15 minutes)..."
-docker compose exec ollama ollama pull llama3.2:1b
-
-echo "Setup complete! The application is ready to use."
+# Start all services and download the AI model (first-time setup only)
+./run.sh
 ```
 
-**Important**: The first time you run this setup, you need to download the AI model (`llama3.2:1b`, approximately 1.3GB). This is a one-time process that may take 5-15 minutes depending on your internet connection. The download command is included above and will show progress as it downloads.
+**Important**: The first time you run this setup, the script will automatically download the AI model (`llama3.2:1b`, approximately 1.3GB). This is a one-time process that may take 5-15 minutes depending on your internet connection. The script will show progress as it downloads.
 
 ### Verification
 
-1. Wait for the model download to complete (you'll see "Setup complete!" message)
+1. Wait for the model download to complete (you'll see "All services ready!" message)
 2. Open your web browser
 3. Go to `http://localhost:3000` - you should see the chatbot frontend
 4. Wait for the "Backend Connected" status
 5. Try sending a message to test the complete setup (e.g., "What's the capital of France?")
 6. Go to `http://localhost:8000/docs` - you should see the API documentation
 
-**Note**: If you see "Backend Disconnected" or chat errors, ensure the model download completed successfully. You can check available models with `docker compose exec ollama ollama list`.
+**Note**: If you see "Backend Disconnected" or chat errors, ensure the model download completed successfully. You can check available models with `docker compose exec aisc-ollama ollama list`.
 
 ### Stop the Application
+
+Press `Ctrl+C` in the terminal running `./run.sh`, or in a new terminal run:
 
 ```bash
 docker compose down

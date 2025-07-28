@@ -24,9 +24,9 @@ services:
     depends_on:
       - ollama
     restart: unless-stopped
-    volumes:
-      - ./02_backend:/app
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    #volumes: #note that mount the volume overwrite the virtual environment.
+    #  - ./02_backend:/app
+    command: .venv/bin/python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
   # Frontend service
   frontend:

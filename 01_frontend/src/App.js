@@ -10,7 +10,7 @@ function App() {
           <div className="logo-container">
             <img 
               src="/logo_aisc_150dpi.png" 
-              alt="AI Service Center Berlin-Brandenburg" 
+              alt="AI Service Centre Berlin Brandenburg" 
               className="logo-left"
             />
             <img 

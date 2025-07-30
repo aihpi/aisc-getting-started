@@ -1,13 +1,13 @@
 <div style="background-color: #ffffff; color: #000000; padding: 10px;">
 <img src="00_aisc\img\logo_aisc_bmftr.jpg">
-<h1> AISC Getting Started
+<h1> AI Service Centre Berlin Brandenburg - Getting Started
 </div>
 
 This repository provides a comprehensive getting started guide for people new to development workflows. Learn how to set up your development environment, work with Python virtual environments, Docker containers, and AI tools like Ollama - all from scratch!
 
 ## Workshop Context
 
-This repository introduces the essential development tools and workflows used in workshops offered by the **AI Service Center Berlin-Brandenburg**. We strongly recommend completing the installation process before attending workshops, particularly if you plan to actively engage with the AI applications and development environments demonstrated during the sessions.
+This repository introduces the essential development tools and workflows used in workshops offered by the **AI Service Centre Berlin Brandenburg**. We strongly recommend completing the installation process before attending workshops, particularly if you plan to actively engage with the AI applications and development environments demonstrated during the sessions.
 
 **Need assistance?** If you encounter any issues during installation, please contact us at **kisz@hpi.de** for technical support.
 

@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
 
 # Install uv and use pyproject.toml for dependencies
 COPY pyproject.toml .
-RUN pip install --no-cache-dir uv && uv sync --system
+COPY uv.lock .
+RUN pip install --no-cache-dir uv && uv sync
 
 # Copy application code
 COPY . .
@@ -21,4 +22,4 @@ COPY . .
 EXPOSE 8000
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD [".venv/bin/python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

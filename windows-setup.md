@@ -303,7 +303,7 @@ Docker Desktop provides containerisation capabilities for Windows with WSL integ
 
 1. Launch Docker Desktop
 2. Go to Settings → General
-3. Ensure "Use the WSL 2 based engine" is checked
+3. Ensure "Use the WSL 2 based engine" is checked (if it fails, install docker-compose)
 4. Go to Settings → Resources → WSL Integration
 5. Enable integration with Ubuntu
 
